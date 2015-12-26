@@ -1,0 +1,2 @@
+# FF14ImageRefererScript
+FF14画像参照先表示スクリプト
