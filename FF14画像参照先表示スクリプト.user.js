@@ -1,6 +1,7 @@
 // ==UserScript==
 // @name        FF14画像参照先表示スクリプト
 // @namespace   nohohon
+// @author      nohohon
 // @description 画像管理ページで画像の参照先を表示する
 // @include     http://jp.finalfantasyxiv.com/lodestone/my/image/*
 // @version     1
@@ -46,7 +47,7 @@
         /** 
         * 全てのタスクを順番に実行
         */
-        function executeAllTask() {
+        function* executeAllTask() {
             Task1.startTask();
             yield;
             Task1.endTask();
@@ -374,7 +375,7 @@
             var paramList = params.concat();    // 配列のコピーを作る
             var loop_count = 0;
             
-            (function() {
+            function loop() {
                 var startTime = new Date(); // 開始時刻を覚える
                 // タイムアウトになるまで処理を行う
                 while ( 1 ) {
@@ -393,8 +394,9 @@
                     }
                 }
                 // 40ms待機後、続きの処理を行う
-                setTimeout( arguments.callee, 40 );
-            })();
+                setTimeout( loop, 40 );
+            };
+            setTimeout( loop, 10 );
         }
         
         /** 
@@ -452,6 +454,7 @@
                 CustomConfig.setLoadDate();
                 TaskControl.init();
                 alert('日記データの読み込みが完了しました。');
+                window.location.reload();
             }
         };
         return global;
