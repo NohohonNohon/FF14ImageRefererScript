@@ -4,7 +4,7 @@
 // @author      nohohon
 // @description 画像管理ページで画像の参照先を表示する
 // @include     http://jp.finalfantasyxiv.com/lodestone/my/image/*
-// @version     1
+// @version     1.0.1
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_deleteValue
@@ -601,7 +601,7 @@
                 var url = image_referer_data[n][0];
                 var title = image_referer_data[n][1];
                 $(elem).append([
-                    '<div class="busyTxt" style="width:191px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;float:right">',
+                    '<div class="busyTxt" style="width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;float:right">',
                     '	<img src="http://img.finalfantasyxiv.com/lds/pc/global/images/common/ic/busy.png?1370575015">',
                     '	<a href="',url,'" title="',title,'" >',title,'</a>',
                     '</div>'
