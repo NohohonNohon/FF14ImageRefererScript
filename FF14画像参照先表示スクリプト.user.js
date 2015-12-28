@@ -601,7 +601,8 @@
                 var url = image_referer_data[n][0];
                 var title = image_referer_data[n][1];
                 $(elem).append([
-                    '<div class="busyTxt" style="width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;float:right">',
+                    '<div class="busyTxt" style="width:300px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;',
+                    'float:right;text-align:left;color:#73bfe6;">',
                     '	<img src="http://img.finalfantasyxiv.com/lds/pc/global/images/common/ic/busy.png?1370575015">',
                     '	<a href="',url,'" title="',title,'" >',title,'</a>',
                     '</div>'
