@@ -36,7 +36,7 @@
             + "\nstatusText: " + res.statusText
             + "\nfinalUrl: " + res.finalUrl;
         console.log(msg);
-    };
+    }
     
     //==================================================
     /** 各タスクの開始をコントロールする */
@@ -119,7 +119,7 @@
                 call_back_func();
             }
             });
-        };
+        }
         
         var global = {
             /** 日記件数 */
@@ -187,7 +187,7 @@
                 error_Array.push(url);
             }
             });
-        };
+        }
         
         /** 
         *  プログレスバーの表示更新
@@ -212,7 +212,7 @@
                 CustomConfig.initProgressBar(blog_list_count,TASK_BLOG_LIST_LOAD);
                 for (var n = 0; n < blog_list_count; n++) {
                     var blog_list_url = 'http://jp.finalfantasyxiv.com/lodestone/character/8564933/blog/?page=' + (n+1);
-                    getBlogURL(blog_list_url)
+                    getBlogURL(blog_list_url);
                 }
                 //記事一覧取得待機
                 setTimeout(function loop(){
@@ -280,7 +280,7 @@
                 error_Array.push(url);
             }
             });
-        };
+        }
         
         /** 
         *  プログレスバーの表示更新
@@ -303,7 +303,7 @@
                 this.image_referer_Array = [];
                 CustomConfig.initProgressBar(Task1.blog_count,TASK_BLOG_IMAGE_LOAD);
                 for (var n = 0; n < Task1.blog_count; n++) {
-                    getBlogImage(Task2.blog_url_Array[n][0],Task2.blog_url_Array[n][1])
+                    getBlogImage(Task2.blog_url_Array[n][0],Task2.blog_url_Array[n][1]);
                 }
                 //記事一覧取得待機
                 setTimeout(function loop(){
@@ -343,9 +343,9 @@
         * GM_Valueを全てクリアする
         */
         function clearGMValue() {
-            var vals = [];
-            for each (var val in GM_listValues()) {
-                GM_deleteValue(val);
+            var vals = GM_listValues();
+            for (var n = 0; n < vals.length; n++) {
+                GM_deleteValue(vals[n]);
             }
         }
         
@@ -361,7 +361,7 @@
                 date.getDate()
                 ].join( '/' ) + ' '
                 + date.toLocaleTimeString();
-        };
+        }
         
         /** 
         * 非同期ループ
@@ -395,7 +395,7 @@
                 // 40ms待機後、続きの処理を行う
                 setTimeout( arguments.callee, 40 );
             })();
-        };
+        }
         
         /** 
         * 画像参照データをGM_Valueに格納する
@@ -517,7 +517,7 @@
                 '	</td>',
                 '</tr>'
             ].join(''));
-        };
+        }
         
         /** 
         * 日記データ読み込みボタンクリック時の処理
@@ -527,7 +527,7 @@
                 return;
             }
             TaskControl.execute();
-        };
+        }
         
         var gloabl = {
             /** プログレスバーの表示フラグ */
@@ -592,10 +592,8 @@
         * @param {Element} 参照先を追加する要素
         */
         function addImageReferer(image_id,elem) {
-            console.log(image_id);
             var image_referer_data = []; 
             image_referer_data = GM_getValue(IMAGE_REFERER + image_id,[]);
-            console.log(image_referer_data);
             for (var n = 0; n < image_referer_data.length; n++) {
                 var url = image_referer_data[n][0];
                 var title = image_referer_data[n][1];
@@ -622,7 +620,6 @@
                     return;
                 }
                 var status_elem = $('div.status_view div.status');
-                console.log(status_elem);
                 for (var n = 0; n < imaeg_url_list.length; n++) {
                     var image_url = imaeg_url_list[n];
                     var image_id = Task4.getImageId(image_url);
