@@ -45,7 +45,7 @@ FF14のロードストーンで画像管理画面を表示すると
 ## 問い合わせ
 
 要望等ありましたら、下記日記にコメントをお願いします。  
-[FF14日記](http://jp.finalfantasyxiv.com/lodestone/character/8564933/blog/2689352/ "外部画像参照が楽になったです～")
+[FF14日記](http://jp.finalfantasyxiv.com/lodestone/character/8564933/blog/2705033/ "年末なので画像を整理してディスク容量を空けるです～")
 
 ## 作者
 
