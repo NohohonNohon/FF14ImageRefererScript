@@ -4,7 +4,7 @@
 // @author      nohohon
 // @description 画像管理ページで画像の参照先を表示する
 // @include     http://jp.finalfantasyxiv.com/lodestone/my/image/*
-// @version     1.0.1
+// @version     1.0.2
 // @grant       GM_getValue
 // @grant       GM_setValue
 // @grant       GM_deleteValue
@@ -48,18 +48,25 @@
         * 全てのタスクを順番に実行
         */
         function* executeAllTask() {
-            Task1.startTask();
-            yield;
-            Task1.endTask();
-            Task2.startTask();
-            yield;
-            Task2.endTask();
-            Task3.startTask();
-            yield;
-            Task3.endTask();
-            Task4.startTask();
-            yield;
-            Task4.endTask();
+            try {
+                Task1.startTask();
+                yield;
+                Task1.endTask();
+                Task2.startTask();
+                yield;
+                Task2.endTask();
+                Task3.startTask();
+                yield;
+                Task3.endTask();
+                Task4.startTask();
+                yield;
+                Task4.endTask();
+            } catch (e) {
+                alert("エラーが発生しました。");
+                console.log("エラー：" + e);
+                CustomConfig.initProgressBar(0,"");
+                CustomConfig.updateProgressBar(0);
+            }
             execute_flag = false;
         }
         
@@ -104,7 +111,7 @@
         * @param {func} コールバック関数
         */
         function getBlogCount(call_back_func) {
-            var blog_list_url = $("a[title = 'マイ日記']").attr('href');
+            var blog_list_url = $("a[onclick *= 'myblog']").attr('href');
             GM_xmlhttpRequest({
             method: 'get',
             url: blog_list_url,
