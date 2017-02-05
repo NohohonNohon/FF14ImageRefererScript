@@ -51,6 +51,3 @@ FF14のロードストーンで画像管理画面を表示すると
 
 Nohohon
 
-## ライセンス
-
-[MIT](http://b4b4r07.mit-license.org)
